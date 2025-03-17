@@ -1,0 +1,191 @@
+Rank_1,Rank_2,Rank_3,Rank_4,Rank_5,Rank_6,Rank_7,Rank_8,Rank_9,Rank_10,Confidence_1,Confidence_2,Confidence_3,Actual
+Carrot,Beans,Pumpkin,Snake gourd,Green Chilli,Tomato,Lime,Cabbage,Brinjal,Potato,14.2,11.4,10.8,Carrot
+Green Chilli,Carrot,Snake gourd,Brinjal,Tomato,Potato,Lime,Pumpkin,Beans,Cabbage,12.4,10.5,10.4,Green Chilli
+Green Chilli,Cabbage,Beans,Snake gourd,Brinjal,Tomato,Carrot,Pumpkin,Lime,Potato,16.6,13.7,9.6,Green Chilli
+Green Chilli,Beans,Snake gourd,Lime,Carrot,Cabbage,Tomato,Pumpkin,Potato,Brinjal,14.2,11.7,10.3,Beans
+Pumpkin,Snake gourd,Carrot,Tomato,Beans,Potato,Green Chilli,Lime,Cabbage,Brinjal,18.1,12.2,9.3,Pumpkin
+Lime,Beans,Tomato,Snake gourd,Carrot,Brinjal,Green Chilli,Cabbage,Pumpkin,Potato,12.3,12.2,10.2,Green Chilli
+Beans,Pumpkin,Potato,Carrot,Brinjal,Green Chilli,Snake gourd,Cabbage,Tomato,Lime,11.3,11.2,10.6,Cabbage
+Carrot,Brinjal,Cabbage,Lime,Beans,Pumpkin,Potato,Snake gourd,Green Chilli,Tomato,11.7,11.4,11.4,Carrot
+Snake gourd,Green Chilli,Cabbage,Beans,Carrot,Tomato,Brinjal,Pumpkin,Lime,Potato,11.6,10.9,10.5,Green Chilli
+Tomato,Snake gourd,Lime,Carrot,Brinjal,Cabbage,Pumpkin,Potato,Beans,Green Chilli,12.3,11.5,11.1,Tomato
+Beans,Brinjal,Tomato,Cabbage,Snake gourd,Green Chilli,Pumpkin,Lime,Potato,Carrot,11.9,11.8,10.0,Carrot
+Potato,Lime,Snake gourd,Carrot,Beans,Tomato,Cabbage,Pumpkin,Green Chilli,Brinjal,17.8,13.3,8.8,Potato
+Pumpkin,Cabbage,Snake gourd,Carrot,Beans,Potato,Lime,Green Chilli,Tomato,Brinjal,13.9,12.5,10.1,Snake gourd
+Beans,Snake gourd,Carrot,Tomato,Cabbage,Brinjal,Pumpkin,Lime,Green Chilli,Potato,12.9,10.8,10.6,Beans
+Cabbage,Brinjal,Tomato,Snake gourd,Beans,Green Chilli,Carrot,Potato,Lime,Pumpkin,15.2,12.7,10.5,Pumpkin
+Brinjal,Green Chilli,Cabbage,Lime,Beans,Snake gourd,Tomato,Pumpkin,Carrot,Potato,12.9,10.2,10.1,Cabbage
+Carrot,Cabbage,Tomato,Snake gourd,Green Chilli,Brinjal,Lime,Beans,Potato,Pumpkin,11.3,11.1,10.8,Brinjal
+Brinjal,Tomato,Green Chilli,Snake gourd,Cabbage,Pumpkin,Lime,Carrot,Beans,Potato,14.0,11.4,10.9,Green Chilli
+Pumpkin,Beans,Snake gourd,Brinjal,Cabbage,Carrot,Lime,Potato,Green Chilli,Tomato,15.1,10.5,10.4,Carrot
+Green Chilli,Snake gourd,Cabbage,Lime,Carrot,Beans,Tomato,Brinjal,Pumpkin,Potato,13.7,10.4,10.1,Brinjal
+Pumpkin,Snake gourd,Green Chilli,Tomato,Potato,Carrot,Beans,Lime,Cabbage,Brinjal,14.0,11.3,10.8,Tomato
+Lime,Potato,Beans,Tomato,Brinjal,Pumpkin,Carrot,Green Chilli,Snake gourd,Cabbage,16.4,11.6,9.5,Lime
+Beans,Lime,Brinjal,Tomato,Pumpkin,Green Chilli,Snake gourd,Cabbage,Potato,Carrot,14.9,10.9,10.5,Green Chilli
+Potato,Carrot,Beans,Tomato,Brinjal,Lime,Snake gourd,Cabbage,Green Chilli,Pumpkin,13.7,11.4,10.6,Potato
+Carrot,Brinjal,Cabbage,Green Chilli,Tomato,Lime,Snake gourd,Beans,Pumpkin,Potato,13.5,11.8,10.8,Beans
+Pumpkin,Snake gourd,Lime,Beans,Carrot,Green Chilli,Brinjal,Potato,Tomato,Cabbage,14.3,11.7,10.3,Pumpkin
+Lime,Green Chilli,Beans,Brinjal,Cabbage,Tomato,Pumpkin,Potato,Carrot,Snake gourd,13.0,11.7,10.9,Green Chilli
+Beans,Brinjal,Snake gourd,Tomato,Carrot,Green Chilli,Cabbage,Pumpkin,Potato,Lime,12.9,11.6,10.3,Brinjal
+Brinjal,Beans,Lime,Snake gourd,Pumpkin,Cabbage,Tomato,Green Chilli,Carrot,Potato,12.4,11.2,10.8,Snake gourd
+Tomato,Cabbage,Pumpkin,Snake gourd,Brinjal,Beans,Potato,Green Chilli,Carrot,Lime,12.4,12.3,12.1,Cabbage
+Beans,Carrot,Green Chilli,Snake gourd,Brinjal,Lime,Cabbage,Potato,Pumpkin,Tomato,12.5,11.1,10.4,Beans
+Carrot,Pumpkin,Potato,Cabbage,Green Chilli,Beans,Brinjal,Tomato,Lime,Snake gourd,12.4,11.2,10.7,Brinjal
+Cabbage,Pumpkin,Carrot,Tomato,Beans,Snake gourd,Lime,Brinjal,Potato,Green Chilli,14.2,12.7,10.4,Brinjal
+Lime,Brinjal,Cabbage,Snake gourd,Beans,Green Chilli,Carrot,Potato,Tomato,Pumpkin,13.1,11.2,10.1,Tomato
+Pumpkin,Cabbage,Snake gourd,Carrot,Potato,Green Chilli,Lime,Beans,Tomato,Brinjal,17.0,11.0,10.2,Pumpkin
+Lime,Green Chilli,Beans,Tomato,Cabbage,Potato,Carrot,Pumpkin,Brinjal,Snake gourd,15.4,11.6,10.1,Lime
+Cabbage,Tomato,Brinjal,Snake gourd,Lime,Green Chilli,Carrot,Beans,Potato,Pumpkin,14.4,12.1,10.2,Pumpkin
+Pumpkin,Tomato,Snake gourd,Green Chilli,Lime,Carrot,Beans,Cabbage,Brinjal,Potato,12.0,11.7,11.1,Cabbage
+Snake gourd,Carrot,Pumpkin,Beans,Cabbage,Lime,Potato,Tomato,Green Chilli,Brinjal,13.6,10.9,10.4,Snake gourd
+Pumpkin,Snake gourd,Tomato,Green Chilli,Potato,Lime,Carrot,Beans,Brinjal,Cabbage,13.4,11.4,10.9,Lime
+Cabbage,Pumpkin,Snake gourd,Brinjal,Potato,Lime,Carrot,Beans,Green Chilli,Tomato,14.2,11.1,10.3,Pumpkin
+Pumpkin,Tomato,Cabbage,Carrot,Snake gourd,Beans,Lime,Potato,Green Chilli,Brinjal,13.6,11.9,10.2,Pumpkin
+Brinjal,Beans,Green Chilli,Snake gourd,Lime,Cabbage,Tomato,Pumpkin,Carrot,Potato,11.3,10.6,10.3,Cabbage
+Pumpkin,Potato,Snake gourd,Carrot,Tomato,Brinjal,Beans,Cabbage,Green Chilli,Lime,13.5,10.5,10.5,Cabbage
+Lime,Snake gourd,Carrot,Beans,Cabbage,Tomato,Green Chilli,Brinjal,Potato,Pumpkin,14.7,11.5,10.2,Lime
+Lime,Snake gourd,Green Chilli,Brinjal,Cabbage,Carrot,Beans,Tomato,Pumpkin,Potato,10.9,10.5,10.3,Cabbage
+Snake gourd,Lime,Beans,Pumpkin,Carrot,Cabbage,Potato,Brinjal,Tomato,Green Chilli,14.2,11.5,10.3,Snake gourd
+Beans,Brinjal,Lime,Green Chilli,Pumpkin,Tomato,Cabbage,Carrot,Potato,Snake gourd,12.7,11.7,11.5,Tomato
+Pumpkin,Beans,Snake gourd,Carrot,Tomato,Cabbage,Potato,Green Chilli,Lime,Brinjal,13.5,11.3,10.4,Snake gourd
+Pumpkin,Snake gourd,Tomato,Carrot,Cabbage,Lime,Green Chilli,Beans,Potato,Brinjal,12.6,10.6,10.2,Cabbage
+Cabbage,Carrot,Pumpkin,Tomato,Snake gourd,Potato,Green Chilli,Beans,Lime,Brinjal,12.1,11.5,11.1,Brinjal
+Cabbage,Beans,Lime,Snake gourd,Pumpkin,Carrot,Tomato,Green Chilli,Potato,Brinjal,12.0,11.4,11.2,Brinjal
+Pumpkin,Snake gourd,Cabbage,Carrot,Tomato,Potato,Green Chilli,Beans,Lime,Brinjal,17.0,10.4,10.0,Pumpkin
+Lime,Cabbage,Snake gourd,Beans,Tomato,Carrot,Pumpkin,Brinjal,Potato,Green Chilli,11.7,11.4,11.3,Lime
+Pumpkin,Carrot,Cabbage,Snake gourd,Tomato,Beans,Potato,Brinjal,Green Chilli,Lime,13.5,10.8,10.7,Tomato
+Beans,Carrot,Snake gourd,Cabbage,Green Chilli,Brinjal,Lime,Tomato,Pumpkin,Potato,12.7,11.3,10.1,Carrot
+Carrot,Potato,Beans,Snake gourd,Pumpkin,Tomato,Brinjal,Lime,Cabbage,Green Chilli,12.4,11.5,11.2,Potato
+Potato,Beans,Brinjal,Green Chilli,Snake gourd,Cabbage,Carrot,Pumpkin,Tomato,Lime,14.0,10.8,10.7,Carrot
+Carrot,Green Chilli,Beans,Brinjal,Lime,Potato,Tomato,Cabbage,Pumpkin,Snake gourd,12.2,10.8,10.8,Snake gourd
+Snake gourd,Green Chilli,Tomato,Brinjal,Cabbage,Beans,Carrot,Pumpkin,Lime,Potato,11.0,10.8,10.8,Green Chilli
+Potato,Cabbage,Tomato,Carrot,Beans,Lime,Green Chilli,Brinjal,Snake gourd,Pumpkin,18.5,10.2,9.5,Potato
+Lime,Tomato,Cabbage,Snake gourd,Carrot,Green Chilli,Beans,Brinjal,Potato,Pumpkin,11.3,11.1,10.9,Snake gourd
+Potato,Lime,Cabbage,Carrot,Green Chilli,Brinjal,Snake gourd,Beans,Pumpkin,Tomato,14.3,10.7,10.1,Potato
+Pumpkin,Carrot,Snake gourd,Potato,Tomato,Beans,Brinjal,Cabbage,Green Chilli,Lime,12.4,12.2,10.3,Brinjal
+Pumpkin,Brinjal,Snake gourd,Carrot,Green Chilli,Cabbage,Lime,Beans,Potato,Tomato,15.9,12.8,9.9,Brinjal
+Potato,Pumpkin,Tomato,Beans,Green Chilli,Lime,Snake gourd,Brinjal,Cabbage,Carrot,21.8,9.6,9.3,Potato
+Lime,Snake gourd,Beans,Pumpkin,Cabbage,Tomato,Carrot,Potato,Green Chilli,Brinjal,14.0,10.7,10.2,Lime
+Cabbage,Snake gourd,Brinjal,Pumpkin,Tomato,Carrot,Lime,Green Chilli,Beans,Potato,12.9,12.3,10.1,Brinjal
+Cabbage,Tomato,Snake gourd,Pumpkin,Beans,Brinjal,Potato,Green Chilli,Lime,Carrot,13.5,13.4,9.5,Pumpkin
+Brinjal,Potato,Beans,Green Chilli,Tomato,Cabbage,Lime,Pumpkin,Carrot,Snake gourd,12.8,11.9,11.1,Potato
+Potato,Beans,Snake gourd,Cabbage,Tomato,Carrot,Brinjal,Green Chilli,Pumpkin,Lime,11.5,10.9,10.5,Tomato
+Pumpkin,Snake gourd,Tomato,Beans,Carrot,Green Chilli,Potato,Lime,Cabbage,Brinjal,18.1,12.1,10.5,Pumpkin
+Potato,Tomato,Green Chilli,Beans,Cabbage,Snake gourd,Brinjal,Pumpkin,Carrot,Lime,22.4,9.3,8.9,Potato
+Green Chilli,Lime,Snake gourd,Beans,Tomato,Brinjal,Cabbage,Carrot,Pumpkin,Potato,14.3,14.1,9.7,Brinjal
+Potato,Carrot,Beans,Snake gourd,Green Chilli,Cabbage,Brinjal,Pumpkin,Lime,Tomato,12.0,11.4,10.7,Carrot
+Green Chilli,Tomato,Brinjal,Snake gourd,Carrot,Beans,Lime,Cabbage,Pumpkin,Potato,14.7,10.8,10.1,Brinjal
+Lime,Tomato,Green Chilli,Snake gourd,Pumpkin,Carrot,Potato,Beans,Cabbage,Brinjal,13.0,11.1,10.3,Lime
+Carrot,Green Chilli,Beans,Lime,Cabbage,Brinjal,Snake gourd,Tomato,Pumpkin,Potato,11.1,10.7,10.6,Carrot
+Lime,Brinjal,Cabbage,Carrot,Snake gourd,Beans,Green Chilli,Tomato,Potato,Pumpkin,11.5,10.8,10.5,Cabbage
+Cabbage,Pumpkin,Snake gourd,Beans,Brinjal,Carrot,Potato,Green Chilli,Tomato,Lime,13.4,12.9,12.2,Brinjal
+Green Chilli,Lime,Tomato,Cabbage,Pumpkin,Beans,Potato,Carrot,Brinjal,Snake gourd,14.5,13.1,9.8,Lime
+Green Chilli,Potato,Beans,Carrot,Brinjal,Cabbage,Tomato,Snake gourd,Lime,Pumpkin,11.8,11.1,10.8,Snake gourd
+Carrot,Lime,Brinjal,Beans,Cabbage,Green Chilli,Snake gourd,Potato,Tomato,Pumpkin,13.9,11.3,10.8,Carrot
+Lime,Green Chilli,Tomato,Carrot,Snake gourd,Cabbage,Potato,Pumpkin,Beans,Brinjal,12.6,12.2,11.0,Lime
+Carrot,Cabbage,Lime,Pumpkin,Snake gourd,Brinjal,Beans,Tomato,Potato,Green Chilli,11.6,11.0,10.7,Cabbage
+Green Chilli,Tomato,Pumpkin,Beans,Brinjal,Cabbage,Lime,Carrot,Potato,Snake gourd,14.3,13.1,9.6,Cabbage
+Carrot,Beans,Cabbage,Brinjal,Tomato,Green Chilli,Pumpkin,Lime,Potato,Snake gourd,11.8,11.6,10.7,Tomato
+Snake gourd,Beans,Carrot,Potato,Lime,Pumpkin,Green Chilli,Brinjal,Cabbage,Tomato,12.5,11.2,11.1,Snake gourd
+Green Chilli,Brinjal,Lime,Tomato,Carrot,Potato,Pumpkin,Snake gourd,Cabbage,Beans,14.3,10.5,10.2,Cabbage
+Cabbage,Snake gourd,Pumpkin,Lime,Carrot,Tomato,Brinjal,Green Chilli,Beans,Potato,12.4,10.9,10.4,Pumpkin
+Lime,Brinjal,Green Chilli,Carrot,Potato,Snake gourd,Pumpkin,Beans,Tomato,Cabbage,17.3,11.4,9.8,Green Chilli
+Carrot,Pumpkin,Green Chilli,Cabbage,Snake gourd,Brinjal,Potato,Tomato,Lime,Beans,15.7,12.5,9.2,Cabbage
+Beans,Green Chilli,Lime,Tomato,Brinjal,Cabbage,Snake gourd,Pumpkin,Potato,Carrot,14.5,11.0,10.5,Beans
+Green Chilli,Tomato,Brinjal,Beans,Lime,Pumpkin,Cabbage,Snake gourd,Carrot,Potato,13.0,12.4,10.3,Snake gourd
+Cabbage,Tomato,Snake gourd,Lime,Carrot,Pumpkin,Brinjal,Beans,Potato,Green Chilli,13.2,10.5,10.4,Brinjal
+Beans,Snake gourd,Green Chilli,Carrot,Brinjal,Potato,Lime,Cabbage,Pumpkin,Tomato,12.7,11.2,10.3,Beans
+Brinjal,Carrot,Snake gourd,Lime,Green Chilli,Cabbage,Pumpkin,Beans,Potato,Tomato,13.1,12.4,11.2,Lime
+Carrot,Lime,Tomato,Beans,Green Chilli,Brinjal,Cabbage,Snake gourd,Pumpkin,Potato,16.6,11.2,9.8,Green Chilli
+Green Chilli,Brinjal,Tomato,Carrot,Lime,Snake gourd,Potato,Pumpkin,Cabbage,Beans,11.6,11.3,11.0,Beans
+Beans,Snake gourd,Cabbage,Brinjal,Pumpkin,Green Chilli,Lime,Carrot,Tomato,Potato,15.2,10.2,10.1,Tomato
+Beans,Green Chilli,Lime,Carrot,Cabbage,Pumpkin,Snake gourd,Potato,Tomato,Brinjal,13.2,11.4,11.0,Lime
+Tomato,Carrot,Snake gourd,Lime,Cabbage,Green Chilli,Pumpkin,Potato,Beans,Brinjal,11.9,11.3,11.1,Beans
+Snake gourd,Cabbage,Pumpkin,Tomato,Beans,Lime,Carrot,Green Chilli,Potato,Brinjal,12.5,11.3,10.2,Tomato
+Potato,Pumpkin,Tomato,Green Chilli,Snake gourd,Carrot,Brinjal,Lime,Beans,Cabbage,20.5,10.4,9.5,Potato
+Cabbage,Snake gourd,Beans,Carrot,Tomato,Potato,Green Chilli,Pumpkin,Brinjal,Lime,11.5,11.4,11.0,Beans
+Cabbage,Pumpkin,Tomato,Snake gourd,Brinjal,Carrot,Lime,Beans,Potato,Green Chilli,14.9,10.2,10.1,Brinjal
+Carrot,Snake gourd,Cabbage,Brinjal,Potato,Beans,Lime,Tomato,Pumpkin,Green Chilli,11.4,10.9,10.3,Brinjal
+Beans,Tomato,Potato,Carrot,Snake gourd,Brinjal,Pumpkin,Cabbage,Green Chilli,Lime,13.1,11.3,10.1,Carrot
+Carrot,Snake gourd,Brinjal,Cabbage,Beans,Lime,Pumpkin,Potato,Tomato,Green Chilli,15.9,11.6,9.7,Tomato
+Snake gourd,Pumpkin,Tomato,Carrot,Lime,Brinjal,Beans,Cabbage,Potato,Green Chilli,12.9,11.7,10.3,Beans
+Lime,Beans,Snake gourd,Brinjal,Green Chilli,Cabbage,Pumpkin,Tomato,Potato,Carrot,12.6,11.3,10.1,Pumpkin
+Pumpkin,Lime,Green Chilli,Snake gourd,Carrot,Beans,Brinjal,Cabbage,Potato,Tomato,13.5,11.0,10.3,Tomato
+Beans,Brinjal,Cabbage,Snake gourd,Carrot,Potato,Lime,Tomato,Green Chilli,Pumpkin,12.8,12.0,10.5,Carrot
+Beans,Cabbage,Carrot,Green Chilli,Tomato,Brinjal,Pumpkin,Lime,Snake gourd,Potato,11.4,10.9,10.8,Beans
+Green Chilli,Lime,Beans,Tomato,Brinjal,Snake gourd,Cabbage,Pumpkin,Potato,Carrot,13.1,11.6,10.5,Lime
+Potato,Tomato,Green Chilli,Brinjal,Carrot,Lime,Pumpkin,Beans,Snake gourd,Cabbage,21.2,9.5,9.1,Potato
+Cabbage,Pumpkin,Tomato,Lime,Beans,Snake gourd,Carrot,Green Chilli,Potato,Brinjal,13.3,10.8,10.7,Tomato
+Brinjal,Tomato,Beans,Lime,Green Chilli,Carrot,Pumpkin,Snake gourd,Cabbage,Potato,14.4,10.4,10.4,Carrot
+Pumpkin,Cabbage,Snake gourd,Carrot,Potato,Green Chilli,Brinjal,Beans,Lime,Tomato,14.8,12.7,10.2,Pumpkin
+Carrot,Brinjal,Beans,Tomato,Green Chilli,Cabbage,Pumpkin,Lime,Snake gourd,Potato,13.6,11.5,10.9,Cabbage
+Green Chilli,Cabbage,Carrot,Lime,Beans,Brinjal,Snake gourd,Pumpkin,Tomato,Potato,13.1,11.4,10.7,Snake gourd
+Beans,Brinjal,Green Chilli,Carrot,Snake gourd,Lime,Tomato,Cabbage,Pumpkin,Potato,12.6,11.3,10.2,Beans
+Green Chilli,Carrot,Snake gourd,Beans,Cabbage,Tomato,Potato,Lime,Brinjal,Pumpkin,16.0,10.9,9.8,Tomato
+Lime,Cabbage,Snake gourd,Beans,Tomato,Green Chilli,Pumpkin,Brinjal,Potato,Carrot,12.9,11.5,10.4,Lime
+Beans,Snake gourd,Green Chilli,Cabbage,Lime,Carrot,Brinjal,Pumpkin,Tomato,Potato,12.3,11.2,10.2,Snake gourd
+Snake gourd,Green Chilli,Tomato,Carrot,Brinjal,Cabbage,Lime,Beans,Pumpkin,Potato,13.0,10.4,10.2,Snake gourd
+Tomato,Pumpkin,Brinjal,Snake gourd,Cabbage,Lime,Carrot,Beans,Potato,Green Chilli,11.7,11.5,11.3,Snake gourd
+Tomato,Pumpkin,Cabbage,Lime,Brinjal,Potato,Snake gourd,Green Chilli,Beans,Carrot,13.0,11.3,10.5,Pumpkin
+Snake gourd,Pumpkin,Tomato,Carrot,Lime,Potato,Beans,Green Chilli,Cabbage,Brinjal,12.6,11.7,10.5,Carrot
+Lime,Brinjal,Carrot,Green Chilli,Snake gourd,Potato,Pumpkin,Tomato,Cabbage,Beans,16.2,13.3,10.3,Beans
+Snake gourd,Cabbage,Lime,Tomato,Pumpkin,Beans,Brinjal,Green Chilli,Carrot,Potato,12.4,11.3,10.8,Tomato
+Beans,Snake gourd,Potato,Brinjal,Tomato,Cabbage,Green Chilli,Carrot,Lime,Pumpkin,12.6,11.4,10.2,Potato
+Beans,Lime,Carrot,Snake gourd,Green Chilli,Cabbage,Brinjal,Potato,Pumpkin,Tomato,12.6,10.8,10.6,Carrot
+Green Chilli,Carrot,Lime,Beans,Tomato,Brinjal,Pumpkin,Snake gourd,Cabbage,Potato,12.3,12.3,11.6,Lime
+Beans,Lime,Carrot,Tomato,Snake gourd,Green Chilli,Brinjal,Cabbage,Pumpkin,Potato,14.1,12.5,9.7,Cabbage
+Potato,Carrot,Green Chilli,Beans,Brinjal,Cabbage,Tomato,Snake gourd,Pumpkin,Lime,12.7,11.2,10.5,Potato
+Pumpkin,Lime,Snake gourd,Green Chilli,Carrot,Beans,Potato,Brinjal,Cabbage,Tomato,12.1,11.5,10.6,Lime
+Tomato,Green Chilli,Pumpkin,Carrot,Lime,Cabbage,Brinjal,Snake gourd,Beans,Potato,12.3,10.7,10.3,Tomato
+Green Chilli,Potato,Tomato,Lime,Beans,Pumpkin,Cabbage,Snake gourd,Carrot,Brinjal,12.5,10.6,10.3,Green Chilli
+Lime,Cabbage,Snake gourd,Pumpkin,Brinjal,Carrot,Tomato,Green Chilli,Beans,Potato,11.5,11.1,11.0,Pumpkin
+Snake gourd,Lime,Tomato,Pumpkin,Cabbage,Brinjal,Carrot,Beans,Potato,Green Chilli,11.7,11.0,10.8,Lime
+Potato,Carrot,Green Chilli,Tomato,Beans,Cabbage,Snake gourd,Lime,Pumpkin,Brinjal,21.3,9.3,9.0,Potato
+Brinjal,Lime,Potato,Carrot,Tomato,Beans,Snake gourd,Green Chilli,Pumpkin,Cabbage,13.7,12.1,11.3,Green Chilli
+Snake gourd,Pumpkin,Cabbage,Lime,Beans,Brinjal,Green Chilli,Tomato,Carrot,Potato,12.3,11.7,10.2,Snake gourd
+Brinjal,Lime,Potato,Tomato,Beans,Carrot,Green Chilli,Snake gourd,Pumpkin,Cabbage,12.9,11.8,10.6,Beans
+Pumpkin,Cabbage,Carrot,Potato,Snake gourd,Lime,Beans,Green Chilli,Brinjal,Tomato,18.1,12.7,9.3,Lime
+Potato,Carrot,Lime,Cabbage,Beans,Snake gourd,Tomato,Brinjal,Pumpkin,Green Chilli,11.8,10.7,10.4,Green Chilli
+Potato,Beans,Lime,Snake gourd,Green Chilli,Carrot,Tomato,Cabbage,Pumpkin,Brinjal,14.0,11.9,10.3,Green Chilli
+Snake gourd,Cabbage,Lime,Tomato,Brinjal,Carrot,Beans,Potato,Green Chilli,Pumpkin,11.7,11.6,11.2,Cabbage
+Lime,Tomato,Green Chilli,Carrot,Potato,Brinjal,Pumpkin,Cabbage,Snake gourd,Beans,14.8,11.1,10.3,Green Chilli
+Lime,Snake gourd,Tomato,Green Chilli,Beans,Carrot,Brinjal,Potato,Cabbage,Pumpkin,14.1,11.5,10.5,Tomato
+Potato,Green Chilli,Lime,Beans,Brinjal,Tomato,Cabbage,Pumpkin,Snake gourd,Carrot,16.9,10.6,10.3,Potato
+Beans,Lime,Green Chilli,Cabbage,Brinjal,Carrot,Pumpkin,Potato,Tomato,Snake gourd,13.4,11.2,10.4,Carrot
+Carrot,Beans,Snake gourd,Cabbage,Lime,Pumpkin,Potato,Brinjal,Tomato,Green Chilli,12.5,12.5,11.4,Pumpkin
+Brinjal,Snake gourd,Beans,Green Chilli,Tomato,Pumpkin,Lime,Cabbage,Carrot,Potato,14.4,10.3,10.1,Cabbage
+Tomato,Beans,Lime,Brinjal,Snake gourd,Cabbage,Pumpkin,Green Chilli,Potato,Carrot,14.4,10.5,10.5,Tomato
+Beans,Carrot,Pumpkin,Brinjal,Cabbage,Snake gourd,Tomato,Green Chilli,Potato,Lime,11.3,10.7,10.6,Snake gourd
+Cabbage,Pumpkin,Tomato,Carrot,Lime,Brinjal,Green Chilli,Snake gourd,Beans,Potato,13.7,11.8,9.9,Pumpkin
+Cabbage,Green Chilli,Carrot,Potato,Beans,Lime,Snake gourd,Tomato,Brinjal,Pumpkin,14.5,12.4,11.9,Lime
+Snake gourd,Lime,Beans,Carrot,Tomato,Brinjal,Cabbage,Potato,Green Chilli,Pumpkin,15.2,10.0,9.9,Brinjal
+Snake gourd,Lime,Pumpkin,Beans,Carrot,Tomato,Brinjal,Cabbage,Green Chilli,Potato,12.3,12.0,10.6,Cabbage
+Potato,Green Chilli,Brinjal,Beans,Cabbage,Lime,Carrot,Tomato,Pumpkin,Snake gourd,10.5,10.5,10.4,Beans
+Green Chilli,Tomato,Lime,Carrot,Beans,Pumpkin,Cabbage,Snake gourd,Brinjal,Potato,11.3,10.8,10.3,Brinjal
+Beans,Carrot,Brinjal,Snake gourd,Cabbage,Lime,Green Chilli,Potato,Tomato,Pumpkin,11.4,11.2,10.7,Green Chilli
+Pumpkin,Lime,Snake gourd,Carrot,Green Chilli,Beans,Tomato,Brinjal,Potato,Cabbage,11.8,11.2,10.4,Lime
+Carrot,Lime,Green Chilli,Beans,Tomato,Cabbage,Snake gourd,Potato,Brinjal,Pumpkin,13.5,10.8,10.8,Green Chilli
+Cabbage,Pumpkin,Brinjal,Snake gourd,Lime,Potato,Green Chilli,Beans,Carrot,Tomato,13.2,11.9,10.8,Snake gourd
+Lime,Brinjal,Beans,Green Chilli,Tomato,Carrot,Snake gourd,Cabbage,Pumpkin,Potato,12.9,11.8,11.4,Beans
+Snake gourd,Green Chilli,Tomato,Brinjal,Beans,Carrot,Pumpkin,Potato,Lime,Cabbage,12.4,11.4,11.2,Brinjal
+Pumpkin,Brinjal,Beans,Cabbage,Tomato,Snake gourd,Carrot,Green Chilli,Lime,Potato,13.6,11.9,10.2,Tomato
+Snake gourd,Brinjal,Cabbage,Green Chilli,Carrot,Beans,Pumpkin,Lime,Potato,Tomato,10.9,10.7,10.6,Carrot
+Lime,Snake gourd,Cabbage,Pumpkin,Tomato,Carrot,Beans,Brinjal,Potato,Green Chilli,14.0,12.0,10.9,Pumpkin
+Brinjal,Cabbage,Carrot,Snake gourd,Lime,Pumpkin,Tomato,Green Chilli,Beans,Potato,12.7,10.7,10.1,Carrot
+Beans,Carrot,Green Chilli,Cabbage,Snake gourd,Pumpkin,Tomato,Potato,Lime,Brinjal,12.5,10.8,10.2,Green Chilli
+Potato,Carrot,Beans,Green Chilli,Brinjal,Snake gourd,Cabbage,Lime,Pumpkin,Tomato,12.5,11.8,11.3,Potato
+Tomato,Pumpkin,Brinjal,Carrot,Beans,Potato,Cabbage,Snake gourd,Green Chilli,Lime,11.4,10.8,10.3,Potato
+Green Chilli,Carrot,Beans,Snake gourd,Potato,Pumpkin,Lime,Brinjal,Tomato,Cabbage,12.1,10.5,10.2,Carrot
+Lime,Brinjal,Beans,Snake gourd,Green Chilli,Tomato,Carrot,Cabbage,Pumpkin,Potato,13.0,11.7,11.1,Tomato
+Pumpkin,Tomato,Brinjal,Snake gourd,Cabbage,Carrot,Beans,Potato,Lime,Green Chilli,11.5,11.4,11.2,Snake gourd
+Brinjal,Green Chilli,Carrot,Beans,Lime,Tomato,Snake gourd,Pumpkin,Cabbage,Potato,11.9,10.5,10.4,Beans
+Carrot,Brinjal,Beans,Tomato,Potato,Cabbage,Snake gourd,Green Chilli,Lime,Pumpkin,12.7,11.6,10.6,Green Chilli
+Potato,Lime,Beans,Green Chilli,Brinjal,Tomato,Pumpkin,Cabbage,Carrot,Snake gourd,13.4,11.1,10.8,Potato
+Tomato,Snake gourd,Green Chilli,Carrot,Brinjal,Beans,Lime,Cabbage,Potato,Pumpkin,11.3,11.0,10.4,Beans
+Snake gourd,Green Chilli,Brinjal,Lime,Carrot,Beans,Tomato,Pumpkin,Potato,Cabbage,13.0,11.7,10.6,Snake gourd
+Cabbage,Brinjal,Pumpkin,Lime,Snake gourd,Beans,Green Chilli,Carrot,Tomato,Potato,11.7,10.8,10.5,Beans
+Tomato,Brinjal,Snake gourd,Cabbage,Pumpkin,Lime,Carrot,Potato,Green Chilli,Beans,12.6,10.7,10.5,Cabbage
+Brinjal,Tomato,Lime,Cabbage,Snake gourd,Pumpkin,Beans,Green Chilli,Potato,Carrot,11.5,11.1,10.9,Pumpkin
+Potato,Carrot,Green Chilli,Beans,Snake gourd,Cabbage,Pumpkin,Brinjal,Lime,Tomato,12.8,11.9,10.3,Potato
+Potato,Pumpkin,Carrot,Snake gourd,Beans,Tomato,Lime,Green Chilli,Brinjal,Cabbage,11.2,10.9,10.9,Potato
+Beans,Carrot,Potato,Green Chilli,Snake gourd,Brinjal,Cabbage,Lime,Tomato,Pumpkin,13.2,12.7,10.2,Carrot
