@@ -335,4 +335,4 @@ def get_maturity_comment(crop, months_available, score):
         return f"{crop} may not have enough time to fully mature before the target harvest month."
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=6000)
