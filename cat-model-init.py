@@ -1,6 +1,6 @@
 import pandas as pd
 from catboost import CatBoostRegressor, Pool
-from sklearn.model_selection import train_test_split, TimeSeriesSplit
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, ndcg_score, average_precision_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
@@ -12,28 +12,27 @@ from datetime import datetime
 os.makedirs('models', exist_ok=True)
 os.makedirs('results', exist_ok=True)
 
-# Load the dataset
+# Load the dataset with the new format
 file_path = 'data/optimized_dataset.csv'
 data = pd.read_csv(file_path)
 
 # ------------------------------------------------ Data Preprocessing
 
-# Extract year and ensure Month is properly formatted
-if 'Year' not in data.columns and 'Date' in data.columns:
-    data['Year'] = pd.to_datetime(data['Date']).dt.year
-    data['Month'] = pd.to_datetime(data['Date']).dt.month
-elif 'Month' in data.columns:
-    # Ensure Month is in the right format
-    data['Month'] = data['Month'].astype(int)
+# Rename columns to match our expected format if needed
+if 'Crop type' in data.columns:
+    data = data.rename(columns={'Crop type': 'Vegetable'})
+
+# Ensure Year and Month are properly formatted
+data['Year'] = data['Year'].astype(int)
+data['Month'] = data['Month'].astype(int)
 
 # Feature engineering
-data['Price_to_Count_Ratio'] = data['Avg_Price'] / (data['Data_Count'] + 1)  # Adding 1 to avoid division by zero
 data['Month_Sin'] = np.sin(2 * np.pi * data['Month']/12)  # Cyclical encoding for month
 data['Month_Cos'] = np.cos(2 * np.pi * data['Month']/12)  # Cyclical encoding for month
 
 # Define categorical and numerical features
-categorical_features = ['Month']
-numerical_features = ['Avg_Price', 'Price_Std', 'Data_Count', 'Price_to_Count_Ratio', 'Month_Sin', 'Month_Cos']
+categorical_features = ['Month', 'Year']  # Added Year as categorical
+numerical_features = ['Avg_Price', 'Price_Std', 'Month_Sin', 'Month_Cos']
 
 # Check for missing values and impute if necessary
 imputer = SimpleImputer(strategy='median')
@@ -50,21 +49,20 @@ y = data['Vegetable']
 # Sample splitting - Choose ONE of these methods based on your data structure:
 
 # OPTION 1: Stratified split (if temporal order isn't critical)
-print("Using stratified train-test split...")
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+# print("Using stratified train-test split...")
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-# OPTION 2: Time-based split (if temporal patterns are important and you have Year in your data)
+# OPTION 2: Time-based split (if temporal patterns are important)
 # Uncomment the following if you prefer this approach
-# if 'Year' in data.columns:
-#     print("Using time-based train-test split...")
-#     max_year = data['Year'].max()
-#     train_mask = data['Year'] < max_year  # Use all data except the last year for training
-#     test_mask = data['Year'] == max_year  # Use the last year for testing
-#     
-#     X_train, X_test = X[train_mask], X[test_mask]
-#     y_train, y_test = y[train_mask], y[test_mask]
-#     print(f"Training years: {data.loc[train_mask, 'Year'].unique()}")
-#     print(f"Testing year: {max_year}")
+print("Using time-based train-test split...")
+max_year = data['Year'].max()
+train_mask = data['Year'] < max_year  # Use all data except the last year for training
+test_mask = data['Year'] == max_year  # Use the last year for testing
+
+X_train, X_test = X[train_mask], X[test_mask]
+y_train, y_test = y[train_mask], y[test_mask]
+print(f"Training years: {data.loc[train_mask, 'Year'].unique()}")
+print(f"Testing year: {max_year}")
 
 # ------------------------------------------------ Model parameters
 
@@ -111,7 +109,7 @@ for veg in vegetables:
     cb_model.fit(train_pool)
     
     # Save the model
-    model_path = f'models/cb_model_{veg}.cbm'
+    model_path = f'models/cb_model_{veg.replace(" ", "_")}.cbm'  # Handle spaces in vegetable names
     cb_model.save_model(model_path)
     models[veg] = model_path
     
@@ -210,6 +208,10 @@ print("\nSample Predictions (first 5 samples):")
 sample_display = ranked_vegetables.iloc[:5, :7]  # Top 3 predictions with confidences + actual
 print(sample_display)
 
+# Add original features to the results for analysis
+for feat in ['Year', 'Month', 'Avg_Price', 'Price_Std']:
+    ranked_vegetables[feat] = X_test[feat].reset_index(drop=True)
+
 # Save results to CSV
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 ranked_vegetables.to_csv(f'results/vegetable_predictions_{timestamp}.csv', index=False)
@@ -219,7 +221,7 @@ confusion = pd.DataFrame(0, index=vegetables, columns=vegetables)
 for true_veg, pred_veg in zip(y_test, [vegetables[i] for i in pred_top1]):
     confusion.loc[true_veg, pred_veg] += 1
 
-confusion.to_csv(f'results/confusion_matrix_{timestamp}.csv')
+confusion.to_csv(f"results/confusion_matrix_{timestamp}.csv")
 
 print(f"\nFull results saved to results/vegetable_predictions_{timestamp}.csv")
 print(f"Confusion matrix saved to results/confusion_matrix_{timestamp}.csv")

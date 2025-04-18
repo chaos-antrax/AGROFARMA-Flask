@@ -264,10 +264,10 @@ def recommend_crops():
             
             # Combine all factors
             # Base score is weighted most heavily
-            final_score = (base_score * 0.5) + \
-                         (rotation_factor * 0.2) + \
-                         (seasonal_factor * 0.2) + \
-                         (maturity_factor * 0.1)
+            final_score = (base_score * 0.3) + \
+                         (rotation_factor * 0.3) + \
+                         (seasonal_factor * 0.25) + \
+                         (maturity_factor * 0.15)
             
             # Store both combined and individual scores for transparency
             predictions[veg] = {
