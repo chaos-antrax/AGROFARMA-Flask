@@ -286,7 +286,7 @@ def recommend_crops():
         final_input = pd.concat([categorical_data, numerical_data], axis=1)
         
         # Ensure column order matches training data exactly
-        expected_columns = ['Avg_Price', 'Price_Std', 'Month_Sin', 'Month_Cos', 'Month', 'Year']
+        expected_columns = categorical_features + numerical_features
         final_input = final_input[expected_columns]
         
         # Debug print (remove in production)
