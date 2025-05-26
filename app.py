@@ -31,17 +31,18 @@ def create_rotation_matrix(vegetables):
     
     # Define good rotation pairs based on crop rotation principles
     good_rotations = {
-        'Potato': ['Beans', 'Cabbage', 'Snake Gourd', 'Pumpkin'],
-        'Tomato': ['Beans', 'Cabbage', 'Carrot'],
-        'Brinjal': ['Beans', 'Cabbage', 'Carrot'],
-        'Green Chilli': ['Beans', 'Carrot', 'Cabbage'],
-        'Beans': ['Cabbage', 'Pumpkin', 'Snake Gourd', 'Carrot', 'Tomato'],
-        'Cabbage': ['Carrot', 'Potato', 'Pumpkin', 'Snake Gourd'],
-        'Carrot': ['Tomato', 'Brinjal', 'Green Chilli', 'Pumpkin'],
-        'Snake Gourd': ['Beans', 'Cabbage', 'Carrot'],
-        'Pumpkin': ['Beans', 'Cabbage', 'Carrot'],
-        'Lime': []  # Lime is perennial; generally not rotated in annual systems
+    'Potato': ['Beans', 'Cabbage', 'Snake Gourd', 'Pumpkin', 'Carrot'],
+    'Tomato': ['Beans', 'Cabbage', 'Snake Gourd', 'Pumpkin'],
+    'Brinjal': ['Beans', 'Cabbage', 'Snake Gourd', 'Pumpkin'],
+    'Green Chilli': ['Beans', 'Cabbage', 'Snake Gourd', 'Pumpkin'],
+    'Beans': ['Cabbage', 'Carrot', 'Potato', 'Tomato', 'Brinjal', 'Green Chilli'],
+    'Cabbage': ['Carrot', 'Potato', 'Pumpkin', 'Snake Gourd', 'Green Chilli'],
+    'Carrot': ['Tomato', 'Brinjal', 'Green Chilli', 'Cabbage', 'Beans'],
+    'Snake Gourd': ['Beans', 'Cabbage', 'Carrot', 'Potato'],
+    'Pumpkin': ['Beans', 'Cabbage', 'Carrot', 'Brinjal'],
+    'Lime': []  # Perennial – not rotated
     }
+
     
     # Set the good rotation values (0.8 = good rotation pair)
     for previous, next_crops in good_rotations.items():
@@ -52,15 +53,25 @@ def create_rotation_matrix(vegetables):
     
     # Bad rotation pairs (0.1 = bad rotation), especially same family or same type
     bad_rotations = {
-        'Potato': ['Tomato', 'Brinjal', 'Green Chilli'],  # Solanaceae family
-        'Tomato': ['Potato', 'Brinjal', 'Green Chilli'],
-        'Brinjal': ['Tomato', 'Potato', 'Green Chilli'],
-        'Green Chilli': ['Potato', 'Tomato', 'Brinjal'],
-        'Cabbage': ['Cabbage'],  # Brassicas deplete soil and attract pests
-        'Pumpkin': ['Snake Gourd', 'Pumpkin'],  # Same family, heavy feeders
-        'Snake Gourd': ['Pumpkin', 'Snake Gourd'],
-        'Lime': []  # Not applicable, but avoid planting under lime
-    }
+    'Potato': ['Tomato', 'Brinjal', 'Green Chilli'],  # All Solanaceae
+    'Tomato': ['Potato', 'Brinjal', 'Green Chilli'],
+    'Brinjal': ['Potato', 'Tomato', 'Green Chilli'],
+    'Green Chilli': ['Potato', 'Tomato', 'Brinjal'],
+
+    'Beans': ['Beans'],  # Risk of nematodes and root diseases with repetition
+
+    'Cabbage': ['Cabbage'],  # Brassica – pest/disease buildup
+    'Carrot': ['Carrot'],  # Susceptible to root diseases in repetition
+
+    'Pumpkin': ['Snake Gourd', 'Pumpkin'],  # Cucurbit family, heavy feeders
+    'Snake Gourd': ['Pumpkin', 'Snake Gourd'],
+
+    'Lime': ['Pumpkin', 'Snake Gourd'],  # Avoid large vines that may interfere with tree roots or canopy
+
+    # Optional redundancy, can help clarify inverse logic in code
+    'Carrot': ['Carrot'],
+    'Beans': ['Beans'],
+}
     
     # Set the bad rotation values
     for previous, next_crops in bad_rotations.items():
@@ -85,7 +96,7 @@ def create_seasonal_matrix(vegetables):
     inter_months = [3, 4, 9]
     
     # Crops that perform best in Maha
-    maha_best = ['Potato', 'Beans', 'Cabbage', 'Pumpkin', 'Snake Gourd', 'Carrot']
+    maha_best = ['Potato', 'Cabbage', 'Carrot', 'Tomato', 'Brinjal', 'Beans']
     for crop in maha_best:
         if crop in vegetables:
             seasonal_matrix.loc[crop, maha_months] = 0.9
@@ -93,7 +104,7 @@ def create_seasonal_matrix(vegetables):
             seasonal_matrix.loc[crop, inter_months] = 0.7
     
     # Crops that perform best in Yala
-    yala_best = ['Tomato', 'Brinjal', 'Green Chilli']
+    yala_best = ['Beans', 'Brinjal', 'Green Chilli', 'Tomato', 'Pumpkin', 'Snake Gourd']
     for crop in yala_best:
         if crop in vegetables:
             seasonal_matrix.loc[crop, yala_months] = 0.9
@@ -129,7 +140,7 @@ def maturity_adjustment(crop, months_to_harvest):
         'Green Chilli': 4
     }
     
-    # Default to 4 months if crop not in table (though all your crops are listed)
+    # Default to 4 months if crop not in table
     required_months = maturity_table.get(crop, 4)
     
     # Special case: Lime is perennial, cycles after maturity
@@ -309,10 +320,10 @@ def recommend_crops():
                 
                 # Combine all factors
                 # Base score is weighted most heavily
-                final_score = (base_score * 0.5) + \
-                             (rotation_factor * 0.2) + \
-                             (seasonal_factor * 0.2) + \
-                             (maturity_factor * 0.1)
+                final_score = (base_score * 0.3) + \
+                             (rotation_factor * 0.3) + \
+                             (seasonal_factor * 0.25) + \
+                             (maturity_factor * 0.15)
                 
                 # Store both combined and individual scores for transparency
                 predictions[veg] = {
