@@ -186,6 +186,11 @@ imputer.fit(data[numerical_features])
 scaler = StandardScaler()
 scaler.fit(data[numerical_features])
 
+@app.route("/")
+def root():
+    return "API is running. Available endpoints: /api/vegetables, /api/recommend"
+
+
 @app.route('/api/vegetables', methods=['GET'])
 def get_vegetables():
     """Return list of available vegetables"""
