@@ -173,23 +173,20 @@ rotation_matrix = create_rotation_matrix(vegetables)
 seasonal_matrix = create_seasonal_matrix(vegetables)
 
 # Feature preprocessing components - fitted on the original data
-categorical_features = ['Month']
+categorical_features = ['Month']  # Only Month is categorical in the API
 numerical_features = ['Avg_Price', 'Price_Std', 'Data_Count', 'Price_to_Count_Ratio', 'Month_Sin', 'Month_Cos']
 
+# Feature engineering on the original data
 data['Price_to_Count_Ratio'] = data['Avg_Price'] / (data['Data_Count'] + 1)
 data['Month_Sin'] = np.sin(2 * np.pi * data['Month']/12)
 data['Month_Cos'] = np.cos(2 * np.pi * data['Month']/12)
 
+# Fit preprocessing components on training data
 imputer = SimpleImputer(strategy='median')
 imputer.fit(data[numerical_features])
 
 scaler = StandardScaler()
 scaler.fit(data[numerical_features])
-
-@app.route("/")
-def root():
-    return "API is running. Available endpoints: /api/vegetables, /api/recommend"
-
 
 @app.route('/api/vegetables', methods=['GET'])
 def get_vegetables():
@@ -224,25 +221,61 @@ def recommend_crops():
         if desired_crop and desired_crop not in vegetables:
             return jsonify({'error': f'Unknown desired crop: {desired_crop}. Available crops: {", ".join(vegetables)}'}), 400
         
-        # Prepare input features
+        # Prepare input features with feature engineering
         month_sin = np.sin(2 * np.pi * target_month/12)
         month_cos = np.cos(2 * np.pi * target_month/12)
         
         # Use median values for price-related features as placeholders
-        # In a real system, you might want to use actual market data or forecasts
-        input_df = pd.DataFrame({
-            'Month': [target_month],
-            'Avg_Price': [data['Avg_Price'].median()],
-            'Price_Std': [data['Price_Std'].median()], 
-            'Data_Count': [data['Data_Count'].median()],
-            'Price_to_Count_Ratio': [data['Price_to_Count_Ratio'].median()],
-            'Month_Sin': [month_sin],
-            'Month_Cos': [month_cos]
-        })
+        avg_price_median = data['Avg_Price'].median()
+        price_std_median = data['Price_Std'].median()
+        data_count_median = data['Data_Count'].median()
+        price_to_count_ratio = avg_price_median / (data_count_median + 1)
         
-        # Preprocess input features
-        input_df[numerical_features] = imputer.transform(input_df[numerical_features])
-        input_df[numerical_features] = scaler.transform(input_df[numerical_features])
+        # Create input DataFrame with proper structure
+        input_data = {
+            # Categorical features (keep as integers - DO NOT SCALE)
+            'Month': target_month,
+            
+            # Numerical features (will be processed)
+            'Avg_Price': avg_price_median,
+            'Price_Std': price_std_median,
+            'Data_Count': data_count_median,
+            'Price_to_Count_Ratio': price_to_count_ratio,
+            'Month_Sin': month_sin,
+            'Month_Cos': month_cos
+        }
+        
+        # Create DataFrame
+        input_df = pd.DataFrame([input_data])
+        
+        # CRITICAL: Separate categorical and numerical processing
+        # Keep categorical features as-is (integers)
+        categorical_data = input_df[categorical_features].copy()
+        
+        # Process only numerical features
+        numerical_data = input_df[numerical_features].copy()
+        numerical_data = pd.DataFrame(
+            imputer.transform(numerical_data),
+            columns=numerical_features,
+            index=numerical_data.index
+        )
+        numerical_data = pd.DataFrame(
+            scaler.transform(numerical_data),
+            columns=numerical_features,
+            index=numerical_data.index
+        )
+        
+        # Combine processed features in the correct order
+        # This must match the order used during model training
+        final_input = pd.concat([categorical_data, numerical_data], axis=1)
+        
+        # Ensure column order matches training data
+        expected_columns = categorical_features + numerical_features
+        final_input = final_input[expected_columns]
+        
+        # Debug print (remove in production)
+        print(f"Input data types: {final_input.dtypes}")
+        print(f"Input data: {final_input.iloc[0].to_dict()}")
         
         # Calculate months available for growing
         months_to_harvest = calculate_growing_period(planting_month, target_month)
@@ -250,43 +283,59 @@ def recommend_crops():
         # Generate base predictions
         predictions = {}
         for veg in vegetables:
-            # Get base prediction from model
-            base_score = models[veg].predict(input_df)[0]
-            
-            # Normalize to 0-1 scale if not already
-            base_score = max(0, min(1, base_score))
-            
-            # Apply crop rotation adjustment if previous crop is specified
-            rotation_factor = 1.0
-            if previous_crop:
-                rotation_factor = rotation_matrix.loc[previous_crop, veg]
-            
-            # Apply seasonal planting adjustment
-            seasonal_factor = seasonal_matrix.loc[veg, planting_month]
-            
-            # Apply maturity adjustment
-            maturity_factor = maturity_adjustment(veg, months_to_harvest)
-            
-            # Combine all factors
-            # Base score is weighted most heavily
-            final_score = (base_score * 0.3) + \
-                         (rotation_factor * 0.3) + \
-                         (seasonal_factor * 0.25) + \
-                         (maturity_factor * 0.15)
-            
-            # Store both combined and individual scores for transparency
-            predictions[veg] = {
-                'finalScore': round(final_score * 100, 1),  # Convert to percentage
-                'baseScore': round(base_score * 100, 1),
-                'rotationScore': round(rotation_factor * 100, 1),
-                'seasonalScore': round(seasonal_factor * 100, 1),
-                'maturityScore': round(maturity_factor * 100, 1),
-                'monthsToHarvest': months_to_harvest,
-                # Add descriptive info for user feedback
-                'rotationComment': get_rotation_comment(previous_crop, veg, rotation_factor) if previous_crop else None,
-                'seasonalComment': get_seasonal_comment(veg, planting_month, seasonal_factor),
-                'maturityComment': get_maturity_comment(veg, months_to_harvest, maturity_factor)
-            }
+            try:
+                # Get base prediction from model
+                base_score = models[veg].predict(final_input)[0]
+                
+                # Normalize to 0-1 scale if not already
+                base_score = max(0, min(1, base_score))
+                
+                # Apply crop rotation adjustment if previous crop is specified
+                rotation_factor = 1.0
+                if previous_crop:
+                    rotation_factor = rotation_matrix.loc[previous_crop, veg]
+                
+                # Apply seasonal planting adjustment
+                seasonal_factor = seasonal_matrix.loc[veg, planting_month]
+                
+                # Apply maturity adjustment
+                maturity_factor = maturity_adjustment(veg, months_to_harvest)
+                
+                # Combine all factors
+                # Base score is weighted most heavily
+                final_score = (base_score * 0.5) + \
+                             (rotation_factor * 0.2) + \
+                             (seasonal_factor * 0.2) + \
+                             (maturity_factor * 0.1)
+                
+                # Store both combined and individual scores for transparency
+                predictions[veg] = {
+                    'finalScore': round(final_score * 100, 1),  # Convert to percentage
+                    'baseScore': round(base_score * 100, 1),
+                    'rotationScore': round(rotation_factor * 100, 1),
+                    'seasonalScore': round(seasonal_factor * 100, 1),
+                    'maturityScore': round(maturity_factor * 100, 1),
+                    'monthsToHarvest': months_to_harvest,
+                    # Add descriptive info for user feedback
+                    'rotationComment': get_rotation_comment(previous_crop, veg, rotation_factor) if previous_crop else None,
+                    'seasonalComment': get_seasonal_comment(veg, planting_month, seasonal_factor),
+                    'maturityComment': get_maturity_comment(veg, months_to_harvest, maturity_factor)
+                }
+                
+            except Exception as model_error:
+                print(f"Error predicting for {veg}: {str(model_error)}")
+                # If individual model fails, set default low score
+                predictions[veg] = {
+                    'finalScore': 10.0,
+                    'baseScore': 10.0,
+                    'rotationScore': 50.0,
+                    'seasonalScore': 50.0,
+                    'maturityScore': 50.0,
+                    'monthsToHarvest': months_to_harvest,
+                    'rotationComment': f"Error processing {veg}",
+                    'seasonalComment': f"Error processing {veg}",
+                    'maturityComment': f"Error processing {veg}"
+                }
         
         # Sort predictions by final score
         sorted_predictions = [
