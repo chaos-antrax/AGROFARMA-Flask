@@ -49,20 +49,20 @@ y = data['Vegetable']
 # Sample splitting - Choose ONE of these methods based on your data structure:
 
 # OPTION 1: Stratified split (if temporal order isn't critical)
-# print("Using stratified train-test split...")
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+print("Using stratified train-test split...")
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
 # OPTION 2: Time-based split (if temporal patterns are important)
 # Uncomment the following if you prefer this approach
-print("Using time-based train-test split...")
-max_year = data['Year'].max()
-train_mask = data['Year'] < max_year  # Use all data except the last year for training
-test_mask = data['Year'] == max_year  # Use the last year for testing
-
-X_train, X_test = X[train_mask], X[test_mask]
-y_train, y_test = y[train_mask], y[test_mask]
-print(f"Training years: {data.loc[train_mask, 'Year'].unique()}")
-print(f"Testing year: {max_year}")
+# print("Using time-based train-test split...")
+# max_year = data['Year'].max()
+# train_mask = data['Year'] < max_year  # Use all data except the last year for training
+# test_mask = data['Year'] == max_year  # Use the last year for testing
+# 
+# X_train, X_test = X[train_mask], X[test_mask]
+# y_train, y_test = y[train_mask], y[test_mask]
+# print(f"Training years: {data.loc[train_mask, 'Year'].unique()}")
+# print(f"Testing year: {max_year}")
 
 # ------------------------------------------------ Model parameters
 
