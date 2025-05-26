@@ -188,6 +188,12 @@ imputer.fit(data[numerical_features])
 scaler = StandardScaler()
 scaler.fit(data[numerical_features])
 
+@app.route('/')
+def root():
+    return jsonify({
+        "The API is running": "Use /api/vegetables to get available crops, and /api/recommend to get crop recommendations."
+    })
+
 @app.route('/api/vegetables', methods=['GET'])
 def get_vegetables():
     """Return list of available vegetables"""
