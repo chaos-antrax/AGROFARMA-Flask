@@ -172,16 +172,17 @@ models, vegetables = load_models()
 rotation_matrix = create_rotation_matrix(vegetables)
 seasonal_matrix = create_seasonal_matrix(vegetables)
 
-# Feature preprocessing components - fitted on the original data
-categorical_features = ['Month']  # Only Month is categorical in the API
-numerical_features = ['Avg_Price', 'Price_Std', 'Data_Count', 'Price_to_Count_Ratio', 'Month_Sin', 'Month_Cos']
+# FIXED: Match the exact feature configuration used during training
+# From training code: categorical_features = ['Month', 'Year']
+# From training code: numerical_features = ['Avg_Price', 'Price_Std', 'Month_Sin', 'Month_Cos']
+categorical_features = ['Month', 'Year']  # Added Year as categorical
+numerical_features = ['Avg_Price', 'Price_Std', 'Month_Sin', 'Month_Cos']  # Removed Data_Count and Price_to_Count_Ratio
 
-# Feature engineering on the original data
-data['Price_to_Count_Ratio'] = data['Avg_Price'] / (data['Data_Count'] + 1)
+# Feature engineering on the original data (matching training)
 data['Month_Sin'] = np.sin(2 * np.pi * data['Month']/12)
 data['Month_Cos'] = np.cos(2 * np.pi * data['Month']/12)
 
-# Fit preprocessing components on training data
+# Fit preprocessing components on training data - ONLY for numerical features
 imputer = SimpleImputer(strategy='median')
 imputer.fit(data[numerical_features])
 
@@ -216,6 +217,7 @@ def recommend_crops():
         previous_crop = request_data.get('previousCrop', None)
         desired_crop = request_data.get('desiredCrop', None)
         planting_month = int(request_data.get('plantingMonth', datetime.now().month))
+        current_year = int(request_data.get('year', datetime.now().year))
         
         # Validate input
         if not (1 <= target_month <= 12):
@@ -227,26 +229,23 @@ def recommend_crops():
         if desired_crop and desired_crop not in vegetables:
             return jsonify({'error': f'Unknown desired crop: {desired_crop}. Available crops: {", ".join(vegetables)}'}), 400
         
-        # Prepare input features with feature engineering
+        # Prepare input features matching training pipeline exactly
         month_sin = np.sin(2 * np.pi * target_month/12)
         month_cos = np.cos(2 * np.pi * target_month/12)
         
         # Use median values for price-related features as placeholders
         avg_price_median = data['Avg_Price'].median()
         price_std_median = data['Price_Std'].median()
-        data_count_median = data['Data_Count'].median()
-        price_to_count_ratio = avg_price_median / (data_count_median + 1)
         
-        # Create input DataFrame with proper structure
+        # Create input DataFrame with exact structure used in training
         input_data = {
-            # Categorical features (keep as integers - DO NOT SCALE)
+            # Categorical features (integers - NOT scaled)
             'Month': target_month,
+            'Year': current_year,
             
-            # Numerical features (will be processed)
+            # Numerical features (will be scaled)
             'Avg_Price': avg_price_median,
             'Price_Std': price_std_median,
-            'Data_Count': data_count_median,
-            'Price_to_Count_Ratio': price_to_count_ratio,
             'Month_Sin': month_sin,
             'Month_Cos': month_cos
         }
@@ -254,7 +253,7 @@ def recommend_crops():
         # Create DataFrame
         input_df = pd.DataFrame([input_data])
         
-        # CRITICAL: Separate categorical and numerical processing
+        # CRITICAL: Process features exactly as in training
         # Keep categorical features as-is (integers)
         categorical_data = input_df[categorical_features].copy()
         
@@ -271,15 +270,16 @@ def recommend_crops():
             index=numerical_data.index
         )
         
-        # Combine processed features in the correct order
-        # This must match the order used during model training
+        # Combine processed features in the EXACT order used during training
+        # Training order: categorical_features + numerical_features
         final_input = pd.concat([categorical_data, numerical_data], axis=1)
         
-        # Ensure column order matches training data
+        # Ensure column order matches training data exactly
         expected_columns = categorical_features + numerical_features
         final_input = final_input[expected_columns]
         
         # Debug print (remove in production)
+        print(f"Input columns: {list(final_input.columns)}")
         print(f"Input data types: {final_input.dtypes}")
         print(f"Input data: {final_input.iloc[0].to_dict()}")
         
@@ -355,7 +355,8 @@ def recommend_crops():
             'plantingMonth': planting_month,
             'harvestMonth': target_month,
             'monthsToHarvest': months_to_harvest,
-            'previousCrop': previous_crop
+            'previousCrop': previous_crop,
+            'year': current_year
         })
         
     except Exception as e:
